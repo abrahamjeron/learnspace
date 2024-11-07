@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../assets/logo.svg";
-import profileDummy from "../../assets/profileDummy.svg";
+import logo from "../../../assets/logo.svg";
+import profileDummy from "../../../assets/profileDummy.svg";
 
 function Navbar() {
     const UserName = 'Abraham Jeron';
