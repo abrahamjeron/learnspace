@@ -1,78 +1,16 @@
-import React, { useState } from "react"
-import modules from "../../../dummydatas/modules"
-import { ChevronDown, ChevronUp } from "lucide-react"
-
+import React, { useState } from "react";
+import modules from "../../../dummydatas/modules";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import quizData from "../../../dummydatas/quizdata";
 // Sample quiz data - replace with your actual data
-const quizData = [
-  {
-    question: "How is Computer Science Different from IT?",
-    options: [
-      "Computer Science focuses on programming and algorithms, while IT focuses on managing and supporting technology systems.",
-      "IT deals with creating hardware, and Computer Science is about software development.",
-      "Computer Science is focused on theoretical aspects of computing, while IT handles practical applications in businesses.",
-      "IT professionals create operating systems, whereas Computer Science professionals focus on cybersecurity."
-    ],
-    correctAnswer: 0,
-    userAnswer: 2,
-    explanation: "Computer Science primarily deals with the theoretical foundations of computing, focusing on programming, algorithms, data structures, and computational theory. CS is about understanding how computers process information and involves designing software, developing new technology, and solving complex computational problems. It covers areas like artificial intelligence, machine learning, software development, and computer security."
-  },
-  {
-    question: "How is Computer Science Different from IT?",
-    options: [
-      "Computer Science focuses on programming and algorithms, while IT focuses on managing and supporting technology systems.",
-      "IT deals with creating hardware, and Computer Science is about software development.",
-      "Computer Science is focused on theoretical aspects of computing, while IT handles practical applications in businesses.",
-      "IT professionals create operating systems, whereas Computer Science professionals focus on cybersecurity."
-    ],
-    correctAnswer: 0,
-    userAnswer: 2,
-    explanation: "Computer Science primarily deals with the theoretical foundations of computing, focusing on programming, algorithms, data structures, and computational theory. CS is about understanding how computers process information and involves designing software, developing new technology, and solving complex computational problems. It covers areas like artificial intelligence, machine learning, software development, and computer security."
-  },
-  {
-    question: "How is Computer Science Different from IT?",
-    options: [
-      "Computer Science focuses on programming and algorithms, while IT focuses on managing and supporting technology systems.",
-      "IT deals with creating hardware, and Computer Science is about software development.",
-      "Computer Science is focused on theoretical aspects of computing, while IT handles practical applications in businesses.",
-      "IT professionals create operating systems, whereas Computer Science professionals focus on cybersecurity."
-    ],
-    correctAnswer: 0,
-    userAnswer: 2,
-    explanation: "Computer Science primarily deals with the theoretical foundations of computing, focusing on programming, algorithms, data structures, and computational theory. CS is about understanding how computers process information and involves designing software, developing new technology, and solving complex computational problems. It covers areas like artificial intelligence, machine learning, software development, and computer security."
-  },
-  {
-    question: "How is Computer Science Different from IT?",
-    options: [
-      "Computer Science focuses on programming and algorithms, while IT focuses on managing and supporting technology systems.",
-      "IT deals with creating hardware, and Computer Science is about software development.",
-      "Computer Science is focused on theoretical aspects of computing, while IT handles practical applications in businesses.",
-      "IT professionals create operating systems, whereas Computer Science professionals focus on cybersecurity."
-    ],
-    correctAnswer: 0,
-    userAnswer: 2,
-    explanation: "Computer Science primarily deals with the theoretical foundations of computing, focusing on programming, algorithms, data structures, and computational theory. CS is about understanding how computers process information and involves designing software, developing new technology, and solving complex computational problems. It covers areas like artificial intelligence, machine learning, software development, and computer security."
-  },
-  {
-    question: "How is Computer Science Different from IT?",
-    options: [
-      "Computer Science focuses on programming and algorithms, while IT focuses on managing and supporting technology systems.",
-      "IT deals with creating hardware, and Computer Science is about software development.",
-      "Computer Science is focused on theoretical aspects of computing, while IT handles practical applications in businesses.",
-      "IT professionals create operating systems, whereas Computer Science professionals focus on cybersecurity."
-    ],
-    correctAnswer: 0,
-    userAnswer: 2,
-    explanation: "Computer Science primarily deals with the theoretical foundations of computing, focusing on programming, algorithms, data structures, and computational theory. CS is about understanding how computers process information and involves designing software, developing new technology, and solving complex computational problems. It covers areas like artificial intelligence, machine learning, software development, and computer security."
-  },
-  // Add more questions as needed
-]
+
 
 function QuestionCard({ question, index, totalQuestions, showExplanation, toggleExplanation }) {
-  const isCorrect = question.userAnswer === question.correctAnswer
+  const isCorrect = question.userAnswer === question.correctAnswer;
   
   return (
-    <div className="flex gap-4 mb-6">
-      <div className="bg-white rounded-xl shadow-md overflow-hidden flex-grow">
+    <div className="flex gap-4 mb-12 w-[1400px] mx-auto"> {/* Adjusted max width and centered content */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden w-full">
         <div className="bg-black text-white p-4 flex justify-between items-center">
           <span>Question {index + 1} of {totalQuestions}</span>
           <span>Mark {isCorrect ? "1" : "0"}/1</span>
@@ -101,7 +39,7 @@ function QuestionCard({ question, index, totalQuestions, showExplanation, toggle
         </div>
       </div>
       
-      <div className="w-72 flex flex-col">
+      <div className="w-[750px] flex flex-col">
         <button
           onClick={() => toggleExplanation(index)}
           className="bg-white rounded-xl shadow-md p-4 text-left flex items-center justify-between hover:bg-gray-50"
@@ -117,19 +55,19 @@ function QuestionCard({ question, index, totalQuestions, showExplanation, toggle
         )}
       </div>
     </div>
-  )
+  );
 }
 
 export default function Content() {
-  const score = 3
-  const [expandedExplanations, setExpandedExplanations] = useState({})
+  const score = 3;
+  const [expandedExplanations, setExpandedExplanations] = useState({});
 
   const toggleExplanation = (index) => {
     setExpandedExplanations(prev => ({
       ...prev,
       [index]: !prev[index]
-    }))
-  }
+    }));
+  };
 
   return (
     <div className="w-full bg-[#F6F6F5] rounded-l-2xl p-6 overflow-y-scroll h-screen">
@@ -157,5 +95,5 @@ export default function Content() {
         ))}
       </div>
     </div>
-  )
+  );
 }
