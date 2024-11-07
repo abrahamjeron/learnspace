@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../Components/moduleComponents/modulenavbar";
 import SideNav from "../Components/moduleComponents/modulesidenav";
-import Content from "../Components/dashboardcomponenets/content";
+import Content from "../Components/moduleComponents/modulecontent";
 
-function Dashboard() {
+function Module() {
     return (
         <div className="flex flex-col w-full h-screen ">
             {/* Navbar */}
@@ -18,4 +18,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Module;
