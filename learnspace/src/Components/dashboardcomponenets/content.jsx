@@ -4,7 +4,7 @@ import Resume from "../../assets/resume.svg";
 
 function Content() {
     return (
-        <div className="w-full bg-contentbg rounded-l-2xl p-6 overflow-y-scroll h-screen">
+        <div className="w-full bg-[#F6F6F5] rounded-l-2xl p-6 overflow-y-scroll h-screen">
             <h1 className="text-[2rem] font-semibold px-6">Courses</h1>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 w-full px-10">
                 <div className="bg-white p-5 mb-4 rounded-3xl shadow-md max-w-[370px] min-w-[330px] min-h-[220px]">

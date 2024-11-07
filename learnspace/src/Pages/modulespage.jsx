@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../Components/dashboardcomponenets/navbar";
-import SideNav from "../Components/dashboardcomponenets/sideNav";
+import Navbar from "../Components/moduleComponents/modulenavbar";
+import SideNav from "../Components/moduleComponents/modulesidenav";
 import Content from "../Components/dashboardcomponenets/content";
 
 function Dashboard() {
