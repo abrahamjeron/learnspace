@@ -1,8 +1,10 @@
 import React from "react";
 import Courses from "../../dummydatas/courses";
 import Resume from "../../assets/resume.svg";
+import { useNavigate, Link } from "react-router-dom";
 
 function Content() {
+    const navigate =useNavigate();
     return (
         <div className="w-full bg-[#F6F6F5] rounded-l-2xl p-6 overflow-y-scroll h-screen">
             <h1 className="text-[2rem] font-semibold px-6">Courses</h1>
@@ -16,7 +18,7 @@ function Content() {
                         className="bg-white p-5 mb-4 rounded-3xl shadow-md max-w-[370px] min-w-[330px] min-h-[220px] relative"
                     >
                         {/* Button with Resume image */}
-                        <button className="absolute top-0 right-0 mt-4 mr-4">
+                        <button onClick={()=>navigate('/modules')} className="absolute top-0 right-0 mt-4 mr-4">
                             <img src={Resume} alt="Resume" className="w-10 h-10" />
                         </button>
                         

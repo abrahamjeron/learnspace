@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import modules from "../../../dummydatas/modules";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import quizData from "../../../dummydatas/quizdata";
-// Sample quiz data - replace with your actual data
 
 
 function QuestionCard({ question, index, totalQuestions, showExplanation, toggleExplanation }) {

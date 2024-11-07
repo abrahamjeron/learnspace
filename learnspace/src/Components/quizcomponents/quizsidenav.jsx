@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SideNav({ 
   currentQuestion = 1, 
@@ -7,6 +7,9 @@ export default function SideNav({
   completedQuestions = [], 
   onQuestionClick = () => {} 
 }) {
+
+  const navigate = useNavigate();
+
   return (
     <div className="text-black bg-[#EFEFEF] w-[40%] min-h-screen rounded-tr-3xl p-8">
       <h1 className="text-2xl font-semibold mb-8">Questions:</h1>
@@ -31,16 +34,10 @@ export default function SideNav({
 
       <button
         className="mt-auto fixed bottom-8 text-xl font-medium hover:text-gray-600 transition-colors"
+        onClick={() => navigate('/quizresult')}
       >
         Finish
       </button>
     </div>
-  )
-}
-
-SideNav.propTypes = {
-  currentQuestion: PropTypes.number,
-  totalQuestions: PropTypes.number,
-  completedQuestions: PropTypes.arrayOf(PropTypes.number),
-  onQuestionClick: PropTypes.func
+  );
 }

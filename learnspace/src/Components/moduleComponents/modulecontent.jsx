@@ -5,12 +5,16 @@ import tick from "../../assets/tick.svg";
 import Course from "../../dummydatas/courses";
 import Sone from "../../assets/sone.svg";
 import Stwo from "../../assets/stwo.svg";
+import { useNavigate, Link } from "react-router-dom";
 
 function Content() {
     const [isToggled, setIsToggled] = useState(false);
 
+    const navigate =useNavigate()
     const handleToggle = () => {
         setIsToggled((prevState) => !prevState);
+        navigate('/quiz')
+    
     };
 
     return (

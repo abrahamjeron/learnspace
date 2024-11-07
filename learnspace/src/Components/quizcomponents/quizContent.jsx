@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import modules from "../../dummydatas/modules";
 import content from "../../dummydatas/content";
 import SideNav from "../quizcomponents/quizsidenav";  // Import the SideNav component
@@ -41,6 +41,24 @@ export default function Content() {
     }
   };
 
+  const initialTime = 30 * 30;
+  const [timeLeft, setTimeLeft] = useState(initialTime);
+
+  useEffect(() => {
+    // Set up the countdown
+    const timer = setInterval(() => {
+      setTimeLeft(prevTime => (prevTime > 0 ? prevTime - 1 : 0));
+    }, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(timer);
+  }, []);
+
+  // Convert timeLeft from seconds to hours, minutes, and seconds
+  const hours = Math.floor(timeLeft / 3600);
+  const minutes = Math.floor((timeLeft % 3600) / 60);
+  const seconds = timeLeft % 60;
+
   return (
     <div className="flex">
       {/* SideNav Component */}
@@ -48,7 +66,17 @@ export default function Content() {
 
       {/* Main Content */}
       <div className="w-full bg-[#F6F6F5] rounded-l-2xl p-6 overflow-y-scroll h-screen">
-        <h1 className="text-[2rem] font-semibold px-6">{modules[0].title}</h1>
+        <div className="flex justify-between">
+            <h1 className="text-[2rem] font-semibold px-6">{modules[0].title}</h1>
+            <div className="flex-col text-center bg-[#EBEBEB] p-2 px-5 rounded-2xl">
+                <h2 className="font-normal text-[#4d4d4d]">Time left</h2>
+                <h1 className="text-[1.2rem] font-medium">
+                {hours > 0 ? `${hours} hr` : ""}
+                {minutes > 0 ? ` ${minutes} min` : ""}
+                {seconds > 0 || (hours === 0 && minutes === 0) ? ` ${seconds} sec` : ""}
+                </h1>
+            </div>
+        </div>
 
         <div className="mt-6">
           <div className="bg-[#EBEBEB] rounded-3xl shadow-sm">
@@ -104,7 +132,7 @@ export default function Content() {
               onClick={handleCompleteQuestion}
               className="mt-4 text-xl font-medium hover:text-gray-600 transition-colors"
             >
-              Mark as Complete
+              Mark for Review
             </button>
           </div>
         </div>
