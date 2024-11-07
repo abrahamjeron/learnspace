@@ -1,7 +1,7 @@
 const modules=[
     {
       "id": 1,
-      "title": "Introduction to Programming",
+      "title": "Introduction to Programming and Data Structures",
       "description": "This module covers the basics of programming, including syntax, data types, and control structures.",
       "status": "In Progress"
     },
